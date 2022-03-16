@@ -14,6 +14,15 @@ import Logo from "./Logo";
 
 import HomeIcon from "../../../icons/Home";
 
+const listItemSx = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: 0,
+  cursor: "pointer",
+};
+
 const Drawer = (props: DrawerProps) => {
   const location = useLocation();
   console.log({ location });
@@ -21,43 +30,72 @@ const Drawer = (props: DrawerProps) => {
     <MuiDrawer
       {...props}
       sx={{
-        width: 80,
-        display: "flex",
         "& > .MuiPaper-root": {
-          backgroundColor: "#1B1B1B",
+          width: "80px",
+          backgroundColor: "grayscale.light",
         },
-        // flexDirection: "column",
       }}
     >
-      <Logo />
-      <List>
-        <ListItem
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            border: "1px solid red",
-          }}
-        >
-          <ListItemIcon>
-            <HomeIcon fill="red" />
-          </ListItemIcon>
-          <ListItemText
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          paddingTop: "37px",
+        }}
+      >
+        <Logo />
+        <List>
+          <ListItem
             sx={{
-              "& > .MuiTypography-root": {
-                color: "#ffffff",
-                fontWeight: 400,
-                fontSize: 12,
-                lineHeight: "150%",
-                letterSpacing: 0.4,
-              },
+              ...listItemSx,
+              marginTop: "43px",
             }}
           >
-            Home
-          </ListItemText>
-        </ListItem>
-      </List>
+            <ListItemIcon
+              sx={{
+                minWidth: 0,
+              }}
+            >
+              <HomeIcon fill="red" />
+            </ListItemIcon>
+            <ListItemText
+              sx={{
+                "& > .MuiTypography-root": {
+                  color: "#ffffff",
+                  typography: "caption",
+                },
+              }}
+            >
+              Home
+            </ListItemText>
+          </ListItem>
+          <ListItem
+            sx={{
+              ...listItemSx,
+              marginTop: "18px",
+            }}
+          >
+            <ListItemIcon
+              sx={{
+                minWidth: 0,
+              }}
+            >
+              <HomeIcon fill="red" />
+            </ListItemIcon>
+            <ListItemText
+              sx={{
+                "& > .MuiTypography-root": {
+                  color: "#ffffff",
+                  typography: "caption",
+                },
+              }}
+            >
+              Tags
+            </ListItemText>
+          </ListItem>
+        </List>
+      </Box>
     </MuiDrawer>
   );
 };
