@@ -55,6 +55,9 @@ const theme = createTheme({
       fontWeight: 400,
       fontSize: 24,
       lineHeight: "150%",
+      display: "flex",
+      alignItems: "center",
+      textTransform: "capitalize",
     },
     caption: {
       fontFamily: "Ubuntu",
