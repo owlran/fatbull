@@ -64,6 +64,7 @@ const buttonSxMap = {
 export default function ButtonSx({
   children,
   variant,
+  sx,
   ...restProps
 }: ButtonProps) {
   return (
@@ -71,6 +72,7 @@ export default function ButtonSx({
       {...restProps}
       sx={{
         ...(variant ? buttonSxMap[variant] : buttonSxMap.text),
+        ...sx,
       }}
     >
       {children}

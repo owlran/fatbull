@@ -1,6 +1,8 @@
 import { SyntheticEvent, useState } from "react";
 
-import { Theme, Box, Typography, Tabs, Tab } from "@mui/material";
+import { Theme, Box, Tabs, Tab } from "@mui/material";
+
+import UserProfile from "./UserProfile";
 
 const tabSx = (theme: Theme) => ({
   flex: 1,
@@ -43,8 +45,10 @@ const Profile = () => {
           gap: "21px",
         }}
       >
-        <Box>Item One</Box>
-        <Box>Item Two</Box>
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
       </Box>
     </Box>
   );
