@@ -8,6 +8,7 @@ declare module "@mui/material/styles/createPalette" {
       light: string;
       50: string;
       400: string;
+      500: string;
     };
     tutor: {
       main: string;
@@ -21,6 +22,7 @@ declare module "@mui/material/styles/createPalette" {
       light: string;
       50: string;
       400: string;
+      500: string;
     };
     tutor?: {
       main: string;

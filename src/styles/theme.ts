@@ -35,6 +35,7 @@ const theme = createTheme({
       light: "#1B1B1B",
       50: "#F8F8F8",
       400: "#B2B2B2",
+      500: "#929292",
     },
     tutor: {
       main: "#FF9B33",
