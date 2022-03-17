@@ -1,7 +1,8 @@
 import { SyntheticEvent, useState } from "react";
 import { Divider, Box, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-import Navigator from "./components/Navigator";
+// import Navigator from "./components/Navigator";
 import Profile from "./components/Profile";
 
 import TextField from "../../components/TextField";
@@ -26,6 +27,7 @@ const dividerSx = {
 };
 
 const Home = () => {
+  const navigate = useNavigate();
   const [sliderIndex, setSliderIndex] = useState(4);
   const sliderInfo = marks[sliderIndex] ?? {};
 
@@ -42,7 +44,7 @@ const Home = () => {
         gap: "130px",
       }}
     >
-      <Navigator />
+      {/* <Navigator /> */}
       <Box sx={{ flex: 1, marginTop: "54px" }}>
         <Box sx={{ width: "725px" }}>
           <Typography variant="h5">Search</Typography>
@@ -89,7 +91,7 @@ const Home = () => {
             }}
           />
           <Box sx={{ marginTop: "335px" }}>
-            <Button>
+            <Button onClick={() => navigate("/results")}>
               <Typography variant="button">Search</Typography>
             </Button>
           </Box>

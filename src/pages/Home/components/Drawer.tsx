@@ -8,7 +8,7 @@ import {
   ListItemText,
 } from "@mui/material";
 
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Logo from "./Logo";
 
@@ -24,10 +24,9 @@ const listItemSx = {
 };
 
 const Drawer = (props: DrawerProps) => {
-  const location = useLocation();
+  // const location = useLocation();
   const navigate = useNavigate();
 
-  console.log({ location });
   return (
     <MuiDrawer
       {...props}

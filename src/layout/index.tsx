@@ -1,8 +1,21 @@
 import { ReactNode } from "react";
 import { Box } from "@mui/material";
 
+import Navigator from "../pages/Home/components/Navigator";
+
 const Layout = ({ children }: { children: ReactNode }) => {
-  return <Box>{children}</Box>;
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        gap: "130px",
+      }}
+    >
+      <Navigator />
+      <Box sx={{ flex: 1 }}>{children}</Box>
+    </Box>
+  );
 };
 
 export default Layout;

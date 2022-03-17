@@ -2,18 +2,20 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Layout from "./layout";
 import Home from "./pages/Home";
-import Result from "./pages/Result";
+import Result from "./pages/Results";
+import Tags from "./pages/Tags";
 
 function App() {
   return (
-    <Layout>
-      <Router>
+    <Router>
+      <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/result" element={<Result />} />
+          <Route path="/results" element={<Result />} />
+          <Route path="/tags" element={<Tags />} />
         </Routes>
-      </Router>
-    </Layout>
+      </Layout>
+    </Router>
   );
 }
 
