@@ -8,7 +8,7 @@ import {
   ListItemText,
 } from "@mui/material";
 
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import Logo from "./Logo";
 
@@ -25,6 +25,8 @@ const listItemSx = {
 
 const Drawer = (props: DrawerProps) => {
   const location = useLocation();
+  const navigate = useNavigate();
+
   console.log({ location });
   return (
     <MuiDrawer
@@ -51,6 +53,7 @@ const Drawer = (props: DrawerProps) => {
               ...listItemSx,
               marginTop: "43px",
             }}
+            onClick={() => navigate("/")}
           >
             <ListItemIcon
               sx={{
@@ -75,6 +78,7 @@ const Drawer = (props: DrawerProps) => {
               ...listItemSx,
               marginTop: "18px",
             }}
+            onClick={() => navigate("/tags")}
           >
             <ListItemIcon
               sx={{
