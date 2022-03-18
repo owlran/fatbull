@@ -33,6 +33,15 @@ export const getUsers = (
   );
 };
 
+// getFollowing with param page, pageSize
+// ex:  [https://avl-frontend-exam.herokuapp.com/api/users/friends?page=1&pageSize=10](https://avl-frontend-exam.herokuapp.com/api/users/friends?page=1&pageSize=10)
+export const getFollowing = (
+  page: number,
+  pageSize: number
+): Promise<AxiosResponse<any>> => {
+  return api.get(`/api/users/friends?page=${page}&pageSize=${pageSize}`);
+};
+
 // getTags with url https://avl-frontend-exam.herokuapp.com/api/tags
 export const getTags = (): Promise<AxiosResponse<any>> => {
   return api.get(`/api/tags`);
