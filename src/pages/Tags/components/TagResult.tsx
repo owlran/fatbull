@@ -1,11 +1,15 @@
 import { Box, Typography } from "@mui/material";
 
-const TagResult = () => {
+const TagResult = ({ name, count }: { name: string; count: number }) => {
   return (
-    <Box>
+    <Box
+      sx={{
+        width: "150px",
+      }}
+    >
       <Box
         sx={{
-          width: "150px",
+          width: "100%",
           height: "150px",
           backgroundColor: "rgba(255, 255, 255, 0.06)",
           borderRadius: "10px",
@@ -22,16 +26,21 @@ const TagResult = () => {
             position: "absolute",
             left: "10px",
             bottom: "14px",
+            maxWidth: "calc(100% - 20px)",
           }}
         >
           <Typography
             variant="h5"
             sx={{
-              display: "inline-flex",
               fontWeight: 700,
+              overflow: "hidden",
+              whiteSpace: "nowrap",
+              textOverflow: "ellipsis",
+              width: "100%",
+              display: "block",
             }}
           >
-            Cool
+            {name}
           </Typography>
         </Box>
       </Box>
@@ -45,9 +54,12 @@ const TagResult = () => {
             lineHeight: "150%",
             letterSpacing: "0.139688px",
             color: "grayscale.white",
+            overflow: "hidden",
+            whiteSpace: "nowrap",
+            textOverflow: "ellipsis",
           }}
         >
-          Cool
+          {name}
         </Typography>
         <Typography
           sx={{
@@ -60,7 +72,7 @@ const TagResult = () => {
             color: "grayscale.400",
           }}
         >
-          350 results
+          {`${count} results`}
         </Typography>
       </Box>
     </Box>
