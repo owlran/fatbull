@@ -10,7 +10,19 @@ const photoSx = (theme: Theme) => ({
   border: `1px solid ${theme.palette.grayscale[50]}`,
 });
 
-const UserProfile = () => {
+const UserProfile = ({
+  avatar,
+  id,
+  isFollowing,
+  name,
+  username,
+}: {
+  avatar: string;
+  id: string;
+  isFollowing: boolean;
+  name: string;
+  username: string;
+}) => {
   return (
     <Box
       sx={{
@@ -22,9 +34,9 @@ const UserProfile = () => {
     >
       <Box sx={photoSx}>P</Box>
       <Box sx={{ display: "flex", flexDirection: "column", flex: 1 }}>
-        <Typography variant="body1">Fullname</Typography>
+        <Typography variant="body1">{name}</Typography>
         <Typography variant="body2" sx={{ opacity: 0.5 }}>
-          @Fullname
+          @{username}
         </Typography>
       </Box>
       <Box>
@@ -34,7 +46,7 @@ const UserProfile = () => {
             p: "8px 10px",
           }}
         >
-          Follow
+          {isFollowing ? "Following" : "Follow"}
         </Button>
       </Box>
     </Box>
