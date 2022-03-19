@@ -1,8 +1,7 @@
-import { useEffect, SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useState } from "react";
 
 import { Theme, Box, Tabs, Tab } from "@mui/material";
 
-import UserProfile from "./UserProfile";
 import InfiniteScrollWrapper from "./InfiniteScrollWrapper";
 
 import { getFollowing } from "../../../services/index";
@@ -27,8 +26,6 @@ type FollowingProfileType = {
   isFollowing: boolean;
 };
 
-const TOTAL_FOLLOWING = 100;
-
 const Profile = () => {
   const [tabValue, setTabValue] = useState(0);
 
@@ -41,35 +38,16 @@ const Profile = () => {
   };
 
   const loadNextPage = async (startIndex: number): Promise<void> => {
-    console.log("load next page with start index ", startIndex);
     setIsNextPageLoading(true);
-    console.log("query api with index ", startIndex);
     const { data: responseData } = await getFollowing(
       Number(startIndex) / 10 + 1,
       10
     );
     setIsNextPageLoading(false);
-    const {
-      data: followingData,
-      page,
-      pageSize,
-      total,
-      totalPages,
-    } = responseData;
+    const { data: followingData, total } = responseData;
 
     setHasNextPage(data.length < total);
     setData([...data, ...followingData]);
-    console.log("after update ");
-    console.log("data is ");
-    console.log({ data });
-
-    console.log({
-      followingData,
-      page,
-      pageSize,
-      total,
-      totalPages,
-    });
   };
 
   return (

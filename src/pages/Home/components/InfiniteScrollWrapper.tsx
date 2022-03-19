@@ -6,7 +6,7 @@ import InfiniteLoader from "react-window-infinite-loader";
 
 import UserProfile from "./UserProfile";
 
-function ExampleWrapper({
+function InfiniteScrollWrapper({
   // Are there more items to load?
   // (This information comes from the most recent API request.)
   hasNextPage,
@@ -93,4 +93,4 @@ function ExampleWrapper({
   );
 }
 
-export default memo(ExampleWrapper);
+export default memo(InfiniteScrollWrapper);
