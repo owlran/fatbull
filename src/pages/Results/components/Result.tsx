@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import { Box, Typography } from "@mui/material";
 
-const Result = () => {
+const Result = ({ name, username }: { name: string; username: string }) => {
   return (
     <Box>
       <Box
@@ -22,7 +24,7 @@ const Result = () => {
             color: "grayscale.white",
           }}
         >
-          Cool
+          {name}
         </Typography>
         <Typography
           variant="h4"
@@ -36,7 +38,7 @@ const Result = () => {
             color: "grayscale.400",
           }}
         >
-          350 results
+          {username}
         </Typography>
       </Box>
     </Box>

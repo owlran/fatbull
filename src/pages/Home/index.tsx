@@ -29,11 +29,22 @@ const dividerSx = {
 const Home = () => {
   const navigate = useNavigate();
   const [sliderIndex, setSliderIndex] = useState(4);
+  const [keyword, setKeyword] = useState("");
+
+  const handleKeywordChange = (event: SyntheticEvent) => {
+    const { value } = event.currentTarget as HTMLInputElement;
+    setKeyword(value);
+  };
+
   const sliderInfo = marks[sliderIndex] ?? {};
 
   const handleSlider = (e: Event | SyntheticEvent, val: number | number[]) => {
     const index = marks.findIndex(({ value }) => value === val);
     setSliderIndex(index);
+  };
+
+  const handleSearch = () => {
+    navigate(`/results?page=1&pageSize=${sliderInfo.value}&keyword=${keyword}`);
   };
 
   return (
@@ -49,7 +60,12 @@ const Home = () => {
         <Box sx={{ width: "725px" }}>
           <Typography variant="h5">Search</Typography>
           <Box sx={{ marginTop: "20px" }}>
-            <TextField fullWidth />
+            <TextField
+              fullWidth
+              placeholder="Keyword"
+              value={keyword}
+              onChange={handleKeywordChange}
+            />
           </Box>
           <Divider
             sx={{
@@ -91,7 +107,7 @@ const Home = () => {
             }}
           />
           <Box sx={{ marginTop: "335px" }}>
-            <Button onClick={() => navigate("/results")}>
+            <Button onClick={handleSearch}>
               <Typography variant="button">Search</Typography>
             </Button>
           </Box>
