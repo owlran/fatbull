@@ -10,12 +10,12 @@ export const api = axios.create({
 });
 
 // getFriends with params page and pageSize, endpoint is /api/users/friends
-// ex: https://avl-frontend-exam.herokuapp.com/api/users/friends?page=1&pageSize=10
+// ex: https://avl-frontend-exam.herokuapp.com/api/users/all?page=1&pageSize=10
 export const getFriends = (
   page: number,
   pageSize: number
 ): Promise<AxiosResponse<any>> => {
-  return api.get(`/api/users/friends?page=${page}&pageSize=${pageSize}`);
+  return api.get(`/api/users/all?page=${page}&pageSize=${pageSize}`);
 };
 
 // getUser with params page, pageSize and keyword(optional), endpoint is /api/users/all

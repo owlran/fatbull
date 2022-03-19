@@ -2,9 +2,8 @@ import { SyntheticEvent, useState } from "react";
 
 import { Theme, Box, Tabs, Tab } from "@mui/material";
 
-import InfiniteScrollWrapper from "./InfiniteScrollWrapper";
-
-import { getFollowing } from "../../../services/index";
+import FriendList from "./FriendList";
+import FollowingList from "./FollowingList";
 
 const tabSx = (theme: Theme) => ({
   flex: 1,
@@ -19,35 +18,11 @@ const tabSx = (theme: Theme) => ({
   },
 });
 
-type FollowingProfileType = {
-  id: string;
-  name: string;
-  username: string;
-  isFollowing: boolean;
-};
-
 const Profile = () => {
   const [tabValue, setTabValue] = useState(0);
 
-  const [data, setData] = useState<FollowingProfileType[]>([]);
-  const [isNextPageLoading, setIsNextPageLoading] = useState(false);
-  const [hasNextPage, setHasNextPage] = useState(true);
-
   const handleChange = (event: SyntheticEvent, newTabValue: number) => {
     setTabValue(newTabValue);
-  };
-
-  const loadNextPage = async (startIndex: number): Promise<void> => {
-    setIsNextPageLoading(true);
-    const { data: responseData } = await getFollowing(
-      Number(startIndex) / 10 + 1,
-      10
-    );
-    setIsNextPageLoading(false);
-    const { data: followingData, total } = responseData;
-
-    setHasNextPage(data.length < total);
-    setData([...data, ...followingData]);
   };
 
   return (
@@ -71,12 +46,7 @@ const Profile = () => {
           gap: "21px",
         }}
       >
-        <InfiniteScrollWrapper
-          hasNextPage={hasNextPage}
-          isNextPageLoading={isNextPageLoading}
-          items={data || []}
-          loadNextPage={loadNextPage}
-        />
+        {tabValue === 1 ? <FollowingList /> : <FriendList />}
       </Box>
     </Box>
   );
