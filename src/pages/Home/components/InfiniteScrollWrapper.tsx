@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { Typography } from "@mui/material";
+import { Box, Skeleton, Typography } from "@mui/material";
 import { FixedSizeList } from "react-window";
 import InfiniteLoader from "react-window-infinite-loader";
 
@@ -40,24 +40,33 @@ function ExampleWrapper({
 
   // Render an item or a loading indicator.
   const Item = ({ index, style }: { index: number; style: any }) => {
+    const content = items[index];
+
     if (!isItemLoaded(index)) {
       return (
-        <Typography
-          variant="h5"
+        <Box
+          style={style}
           sx={{
-            color: "red",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
-          Loading...
-        </Typography>
+          <Skeleton
+            sx={{ bgcolor: "grey.900" }}
+            variant="rectangular"
+            width={40}
+            height={40}
+          />
+          <Skeleton width={79} height={45} />
+          <Skeleton width={60} height={29} />
+        </Box>
       );
     }
 
-    const content = items[index];
     return (
       <div style={style}>
-        <p>{index}</p>
-        <UserProfile style={style} {...content} />
+        <UserProfile {...content} />
       </div>
     );
   };
@@ -72,11 +81,10 @@ function ExampleWrapper({
         <FixedSizeList
           itemCount={itemCount}
           onItemsRendered={onItemsRendered}
-          itemSize={100}
+          itemSize={60}
           height={772}
           ref={ref}
-          width={300}
-          overscanCount={1}
+          width={343}
         >
           {Item}
         </FixedSizeList>
