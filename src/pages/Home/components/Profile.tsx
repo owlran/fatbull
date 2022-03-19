@@ -30,45 +30,41 @@ type FollowingProfileType = {
 const TOTAL_FOLLOWING = 100;
 
 const Profile = () => {
-  const [value, setValue] = useState(0);
+  const [tabValue, setTabValue] = useState(0);
+
   const [data, setData] = useState<FollowingProfileType[]>([]);
   const [isNextPageLoading, setIsNextPageLoading] = useState(false);
   const [hasNextPage, setHasNextPage] = useState(true);
 
-  const handleChange = (event: SyntheticEvent, newValue: any) => {
-    setValue(newValue);
+  const handleChange = (event: SyntheticEvent, newTabValue: number) => {
+    setTabValue(newTabValue);
   };
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const { data: followingData } = await getFollowing(1, 10);
-  //     const { data: dd, page, pageSize, total, totalPages } = followingData;
-  //     setData(dd);
-  //     console.log({
-  //       dd,
-  //       page,
-  //       pageSize,
-  //       total,
-  //       totalPages,
-  //     });
-  //   };
-  //   fetchData();
-  // }, []);
-
-  const loadNextPage = async (...args: any[]): Promise<void> => {
+  const loadNextPage = async (startIndex: number): Promise<void> => {
+    console.log("load next page with start index ", startIndex);
     setIsNextPageLoading(true);
-    console.log("loadNextPage", ...args);
-    const { data: followingData } = await getFollowing(
-      Number(args[0]) / 10 + 1,
+    console.log("query api with index ", startIndex);
+    const { data: responseData } = await getFollowing(
+      Number(startIndex) / 10 + 1,
       10
     );
     setIsNextPageLoading(false);
-    const { data: dd, page, pageSize, total, totalPages } = followingData;
-    setHasNextPage(page < totalPages);
-    console.log({ dd });
-    setData([...data, ...dd]);
+    const {
+      data: followingData,
+      page,
+      pageSize,
+      total,
+      totalPages,
+    } = responseData;
+
+    setHasNextPage(data.length < total);
+    setData([...data, ...followingData]);
+    console.log("after update ");
+    console.log("data is ");
+    console.log({ data });
+
     console.log({
-      dd,
+      followingData,
       page,
       pageSize,
       total,
@@ -80,7 +76,7 @@ const Profile = () => {
     <Box sx={{ width: "375px", marginTop: "32px" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
-          value={value}
+          value={tabValue}
           onChange={handleChange}
           aria-label="basic tabs example"
           sx={{ width: "100%", flex: "1 1 auto" }}

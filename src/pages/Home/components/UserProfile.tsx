@@ -11,13 +11,13 @@ const photoSx = (theme: Theme) => ({
 });
 
 const UserProfile = ({
-  avatar,
+  avater,
   id,
   isFollowing,
   name,
   username,
 }: {
-  avatar: string;
+  avater: string;
   id: string;
   isFollowing: boolean;
   name: string;
@@ -32,7 +32,10 @@ const UserProfile = ({
         gap: "15px",
       }}
     >
-      <Box sx={photoSx}>P</Box>
+      <Box sx={photoSx}>
+        {/* avater url is not work, so just leave place here */}
+        {/* <img src={avater} alt={username} /> */}
+      </Box>
       <Box sx={{ display: "flex", flexDirection: "column", flex: 1 }}>
         <Typography variant="body1">{name}</Typography>
         <Typography variant="body2" sx={{ opacity: 0.5 }}>
