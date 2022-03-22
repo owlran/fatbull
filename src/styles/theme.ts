@@ -36,6 +36,7 @@ const theme = createTheme({
       50: "#F8F8F8",
       400: "#B2B2B2",
       500: "#929292",
+      600: "#6A6A6A",
     },
     tutor: {
       main: "#FF9B33",

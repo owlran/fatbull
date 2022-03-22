@@ -9,6 +9,7 @@ declare module "@mui/material/styles/createPalette" {
       50: string;
       400: string;
       500: string;
+      600: string;
     };
     tutor: {
       main: string;
@@ -23,6 +24,7 @@ declare module "@mui/material/styles/createPalette" {
       50: string;
       400: string;
       500: string;
+      600: string;
     };
     tutor?: {
       main: string;

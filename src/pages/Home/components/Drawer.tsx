@@ -9,7 +9,7 @@ import {
   Badge,
 } from "@mui/material";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useMatch } from "react-router-dom";
 
 import Logo from "./Logo";
 
@@ -22,6 +22,16 @@ const listItemSx = {
   justifyContent: "center",
   padding: 0,
   cursor: "pointer",
+  // backgroundColor: "grayscale.white",
+  "& > .MuiListItemIcon-root": {
+    color: "grayscale.600",
+  },
+};
+
+const activeListItemSx = {
+  "& > .MuiListItemIcon-root": {
+    color: "white",
+  },
 };
 
 const iconWrapperSx = {
@@ -39,8 +49,10 @@ const itemTextSx = {
 };
 
 const Drawer = (props: DrawerProps) => {
-  // const location = useLocation();
   const navigate = useNavigate();
+  const match = useMatch("/*");
+  // path: home -> '/', tags: /tags
+  const path = match?.pathname;
 
   return (
     <MuiDrawer
@@ -65,18 +77,20 @@ const Drawer = (props: DrawerProps) => {
           <ListItem
             sx={{
               ...listItemSx,
+              ...(path === "/" ? activeListItemSx : {}),
               mt: "7px",
             }}
             onClick={() => navigate("/")}
           >
             <ListItemIcon sx={iconWrapperSx}>
-              <HomeIcon fill="red" />
+              <HomeIcon />
             </ListItemIcon>
-            <ListItemText sx={itemTextSx}>Home</ListItemText>
+            {path === "/" && <ListItemText sx={itemTextSx}>Home</ListItemText>}
           </ListItem>
           <ListItem
             sx={{
               ...listItemSx,
+              ...(path === "/tags" ? activeListItemSx : {}),
               mt: "22px",
             }}
             onClick={() => navigate("/tags")}
@@ -86,6 +100,7 @@ const Drawer = (props: DrawerProps) => {
                 variant="dot"
                 overlap="rectangular"
                 anchorOrigin={{ vertical: "top", horizontal: "right" }}
+                invisible={path === "/tags"}
                 sx={(theme) => ({
                   "& 	.MuiBadge-dot": {
                     position: "relative",
@@ -99,10 +114,12 @@ const Drawer = (props: DrawerProps) => {
                   },
                 })}
               >
-                <HomeIcon fill="red" />
+                <HomeIcon />
               </Badge>
             </ListItemIcon>
-            <ListItemText sx={itemTextSx}>Tags</ListItemText>
+            {path === "/tags" && (
+              <ListItemText sx={itemTextSx}>Tags</ListItemText>
+            )}
           </ListItem>
         </List>
       </Box>
