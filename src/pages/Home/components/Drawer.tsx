@@ -24,6 +24,20 @@ const listItemSx = {
   cursor: "pointer",
 };
 
+const iconWrapperSx = {
+  minWidth: "24px",
+  width: "24px",
+  height: "24px",
+};
+
+const itemTextSx = {
+  margin: 0,
+  "& > .MuiTypography-root": {
+    color: "#ffffff",
+    typography: "caption",
+  },
+};
+
 const Drawer = (props: DrawerProps) => {
   // const location = useLocation();
   const navigate = useNavigate();
@@ -35,6 +49,7 @@ const Drawer = (props: DrawerProps) => {
         "& > .MuiPaper-root": {
           width: "80px",
           backgroundColor: "grayscale.light",
+          border: "none",
         },
       }}
     >
@@ -43,7 +58,6 @@ const Drawer = (props: DrawerProps) => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          paddingTop: "37px",
         }}
       >
         <Logo />
@@ -51,40 +65,23 @@ const Drawer = (props: DrawerProps) => {
           <ListItem
             sx={{
               ...listItemSx,
-              marginTop: "43px",
+              mt: "7px",
             }}
             onClick={() => navigate("/")}
           >
-            <ListItemIcon
-              sx={{
-                minWidth: 0,
-              }}
-            >
+            <ListItemIcon sx={iconWrapperSx}>
               <HomeIcon fill="red" />
             </ListItemIcon>
-            <ListItemText
-              sx={{
-                "& > .MuiTypography-root": {
-                  color: "#ffffff",
-                  typography: "caption",
-                },
-              }}
-            >
-              Home
-            </ListItemText>
+            <ListItemText sx={itemTextSx}>Home</ListItemText>
           </ListItem>
           <ListItem
             sx={{
               ...listItemSx,
-              marginTop: "18px",
+              mt: "22px",
             }}
             onClick={() => navigate("/tags")}
           >
-            <ListItemIcon
-              sx={{
-                minWidth: 0,
-              }}
-            >
+            <ListItemIcon sx={iconWrapperSx}>
               <Badge
                 variant="dot"
                 overlap="rectangular"
@@ -105,16 +102,7 @@ const Drawer = (props: DrawerProps) => {
                 <HomeIcon fill="red" />
               </Badge>
             </ListItemIcon>
-            <ListItemText
-              sx={{
-                "& > .MuiTypography-root": {
-                  color: "#ffffff",
-                  typography: "caption",
-                },
-              }}
-            >
-              Tags
-            </ListItemText>
+            <ListItemText sx={itemTextSx}>Tags</ListItemText>
           </ListItem>
         </List>
       </Box>
