@@ -85,8 +85,12 @@ const Results = () => {
           <Typography variant="h4">{`Results`}</Typography>
         </Box>
         <Box sx={{ mt: "24px", display: "flex", gap: "34px" }}>
-          {users?.map((user) => (
-            <Result key={user.id} name={user.name} username={user.username} />
+          {users?.map((user, index) => (
+            <Result
+              key={`result-${user.id}-${index}`}
+              name={user.name}
+              username={user.username}
+            />
           ))}
         </Box>
         <Box sx={{ mt: "39px" }}>
