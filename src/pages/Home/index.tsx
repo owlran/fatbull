@@ -82,7 +82,7 @@ const Home = () => {
                 fontWeight: 700,
               }}
             >
-              30
+              {sliderInfo.label}
             </Typography>
             <Typography
               variant="subtitle1"

@@ -19,7 +19,6 @@ const containerSx = {
 
 const Results = () => {
   const navigate = useNavigate();
-  console.log("render Results");
   const [searchParams] = useSearchParams();
 
   const params: {
@@ -48,7 +47,6 @@ const Results = () => {
     const fetchData = async () => {
       const { pageSize, page: paramPage, keyword } = params;
       const { data } = await getResults(paramPage, pageSize, keyword);
-      console.log({ data });
       setUsers([...data?.data]);
       setPage(paramPage);
     };
@@ -58,11 +56,11 @@ const Results = () => {
   const handleClickMore = () => {
     setPage(page + 1);
   };
+
   useEffect(() => {
     const fetchData = async () => {
       const { pageSize, keyword } = params;
       const { data } = await getResults(page, pageSize, keyword);
-      console.log({ data });
       setUsers([...users, ...data?.data]);
     };
     fetchData();
@@ -82,9 +80,11 @@ const Results = () => {
           onClick={() => navigate("/")}
         >
           <VectorIcon />
-          <Typography variant="h4">{`Results`}</Typography>
+          <Typography variant="h4">Results</Typography>
         </Box>
-        <Box sx={{ mt: "24px", display: "flex", gap: "34px" }}>
+        <Box
+          sx={{ mt: "24px", display: "flex", gap: "34px", flexWrap: "wrap" }}
+        >
           {users?.map((user, index) => (
             <Result
               key={`result-${user.id}-${index}`}
