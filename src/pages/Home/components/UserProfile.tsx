@@ -1,4 +1,4 @@
-import { Theme, Typography, Box, Tabs, Tab } from "@mui/material";
+import { Theme, Typography, Box } from "@mui/material";
 
 import Button from "../../../components/Button";
 
@@ -10,14 +10,10 @@ const photoSx = (theme: Theme) => ({
 });
 
 const UserProfile = ({
-  avater,
-  id,
   isFollowing,
   name,
   username,
 }: {
-  avater: string;
-  id: string;
   isFollowing: boolean;
   name: string;
   username: string;
