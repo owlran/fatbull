@@ -82,6 +82,7 @@ const Results = () => {
         })}
       >
         <Box
+          onClick={() => navigate("/")}
           sx={(theme) => ({
             display: "none",
             [theme.breakpoints.down("md")]: {
@@ -89,6 +90,7 @@ const Results = () => {
               gap: "20px",
               alignItems: "center",
               pl: "6px",
+              cursor: "pointer",
             },
           })}
         >
