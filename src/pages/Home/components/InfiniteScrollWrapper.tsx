@@ -50,6 +50,7 @@ function InfiniteScrollWrapper({
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            gap: "15px",
           }}
         >
           <Skeleton
@@ -58,8 +59,8 @@ function InfiniteScrollWrapper({
             width={40}
             height={40}
           />
-          <Skeleton width={79} height={45} />
-          <Skeleton width={60} height={29} />
+          <Skeleton height={40} sx={{ flex: 1 }} />
+          <Skeleton width={60} height={40} />
         </Box>
       );
     }
