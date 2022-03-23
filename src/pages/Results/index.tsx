@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useCallback, useState, useMemo, useEffect } from "react";
 
-import { Skeleton, Box, Typography } from "@mui/material";
+import { Theme, Skeleton, Box, Typography } from "@mui/material";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
 import Profile from "../Home/components/Profile";
@@ -17,12 +17,6 @@ type UserType = {
   isFollowing: boolean;
   name: string;
   username: string;
-};
-
-const containerSx = {
-  display: "flex",
-  justifyContent: "space-between",
-  gap: "130px",
 };
 
 const Results = () => {
@@ -67,22 +61,66 @@ const Results = () => {
   }, [page]);
 
   return (
-    <Box sx={containerSx}>
-      <Box sx={{ mt: "92px" }}>
+    <Box
+      sx={(theme) => ({
+        display: "flex",
+        justifyContent: "space-between",
+        gap: "130px",
+        [theme.breakpoints.down("md")]: {
+          display: "block",
+        },
+      })}
+    >
+      <Box
+        sx={(theme) => ({
+          mt: "92px",
+          [theme.breakpoints.down("md")]: {
+            mt: "17px",
+            padding: "0 20px",
+          },
+        })}
+      >
         <Box
-          sx={{
+          sx={(theme) => ({
+            display: "none",
+            [theme.breakpoints.down("md")]: {
+              display: "flex",
+              gap: "20px",
+              alignItems: "center",
+              pl: "6px",
+            },
+          })}
+        >
+          <VectorIcon />
+          <Typography variant="h5">Home Page</Typography>
+        </Box>
+        <Box
+          sx={(theme) => ({
             display: "flex",
             alignItems: "center",
             gap: "32px",
             ml: "-36.5px",
             cursor: "pointer",
-          }}
+            [theme.breakpoints.down("md")]: {
+              mt: "37px",
+            },
+          })}
           onClick={() => navigate("/")}
         >
           <VectorIcon />
           <Typography variant="h4">Results</Typography>
         </Box>
-        <Box sx={{ mt: "-7px", display: "flex", flexWrap: "wrap" }}>
+        <Box
+          sx={(theme) => ({
+            mt: "-7px",
+            display: "flex",
+            flexWrap: "wrap",
+            [theme.breakpoints.down("md")]: {
+              // 40 - 24px
+              mt: "-16px",
+            },
+          })}
+        >
           {loading
             ? Array.from({ length: params?.pageSize || 20 }).map((_, index) => (
                 <Skeleton
@@ -98,10 +136,15 @@ const Results = () => {
                   key={`result-${user.id}-${index}`}
                   name={user.name}
                   username={user.username}
-                  sx={{
+                  sx={(theme: Theme) => ({
                     mt: "31px",
                     mr: "24px",
-                  }}
+                    [theme.breakpoints.down("md")]: {
+                      width: "100%",
+                      mt: "40px",
+                      mr: 0,
+                    },
+                  })}
                 />
               ))}
         </Box>

@@ -1,10 +1,13 @@
 import { ReactNode } from "react";
 import { Box } from "@mui/material";
+import { useMatch } from "react-router-dom";
 
 import Navigator from "../pages/Home/components/Navigator";
 import Logo from "../pages/Home/components/Logo";
 
 const Layout = ({ children }: { children: ReactNode }) => {
+  const matchedHome = useMatch("/");
+
   return (
     <Box
       sx={(theme) => ({
@@ -18,19 +21,21 @@ const Layout = ({ children }: { children: ReactNode }) => {
         },
       })}
     >
-      <Box
-        sx={(theme) => ({
-          display: "none",
-          [theme.breakpoints.down("md")]: {
-            display: "block",
-            pl: "21px",
-            pt: "28px",
-            pb: "27px",
-          },
-        })}
-      >
-        <Logo />
-      </Box>
+      {matchedHome && (
+        <Box
+          sx={(theme) => ({
+            display: "none",
+            [theme.breakpoints.down("md")]: {
+              display: "block",
+              pl: "21px",
+              pt: "28px",
+              pb: "27px",
+            },
+          })}
+        >
+          <Logo />
+        </Box>
+      )}
       <Box
         sx={(theme) => ({
           [theme.breakpoints.down("md")]: {

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import { SxProps, Box, Typography } from "@mui/material";
+import { Theme, SxProps, Box, Typography } from "@mui/material";
 
 const Result = ({
   name,
@@ -9,18 +9,29 @@ const Result = ({
 }: {
   name: string;
   username: string;
-  sx: SxProps;
+  sx: SxProps<Theme>;
 }) => {
   return (
     <Box sx={sx}>
       <Box
-        sx={{
+        sx={(theme) => ({
           width: "219px",
           height: "146px",
           backgroundColor: "common.white",
-        }}
+          [theme.breakpoints.down("md")]: {
+            width: "100%",
+            height: "223px",
+          },
+        })}
       ></Box>
-      <Box sx={{ mt: "12px" }}>
+      <Box
+        sx={(theme) => ({
+          mt: "12px",
+          [theme.breakpoints.down("md")]: {
+            mt: "21px",
+          },
+        })}
+      >
         <Typography
           sx={{
             fontFamily: "Ubuntu",
