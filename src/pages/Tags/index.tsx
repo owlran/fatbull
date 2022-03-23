@@ -1,30 +1,67 @@
 import { Skeleton, Box, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 import TagResult from "./components/TagResult";
 
 import useTags from "../../hooks/useTags";
-
-const containerSx = {
-  display: "flex",
-  justifyContent: "space-between",
-  padding: "80px 236px 0 128px",
-  width: "100%",
-};
+import VectorIcon from "../../icons/Vector";
 
 const Tags = () => {
+  const navigate = useNavigate();
   const { tags, loading } = useTags();
 
   return (
-    <Box sx={containerSx}>
+    <Box
+      sx={(theme) => ({
+        display: "flex",
+        justifyContent: "space-between",
+        padding: "80px 236px 0 128px",
+        width: "100%",
+        [theme.breakpoints.down("md")]: {
+          padding: "17px 25px 100px 25px",
+        },
+      })}
+    >
       <Box>
         <Box
-          sx={{
+          onClick={() => navigate("/")}
+          sx={(theme) => ({
+            display: "none",
+            [theme.breakpoints.down("md")]: {
+              display: "flex",
+              gap: "20px",
+              pl: "6px",
+              pb: "17px",
+              cursor: "pointer",
+            },
+          })}
+        >
+          <VectorIcon />
+          <Typography variant="h5">Home Page</Typography>
+        </Box>
+        <Box
+          sx={(theme) => ({
             display: "flex",
             alignItems: "center",
             gap: "24px",
-          }}
+            [theme.breakpoints.down("md")]: {
+              mt: "20px",
+            },
+          })}
         >
-          <Typography variant="h4">Tags</Typography>
+          <Typography
+            variant="h4"
+            sx={(theme) => ({
+              [theme.breakpoints.down("md")]: {
+                fontSize: "24px",
+                fontWeight: 400,
+                lineHeight: "150%",
+                letterSpacing: 0,
+              },
+            })}
+          >
+            Tags
+          </Typography>
         </Box>
         {loading ? (
           <Box sx={{ mt: "-12px", display: "flex", flexWrap: "wrap" }}>
@@ -39,7 +76,18 @@ const Tags = () => {
             ))}
           </Box>
         ) : (
-          <Box sx={{ mt: "-12px", display: "flex", flexWrap: "wrap" }}>
+          <Box
+            sx={(theme) => ({
+              mt: "-12px",
+              display: "flex",
+              flexWrap: "wrap",
+              [theme.breakpoints.down("md")]: {
+                mt: 0,
+                justifyContent: "center",
+                alignItems: "center",
+              },
+            })}
+          >
             {tags?.map((tag) => (
               <TagResult key={tag.id} name={tag.name} count={tag.count} />
             ))}

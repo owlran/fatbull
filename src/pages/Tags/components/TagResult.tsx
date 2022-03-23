@@ -3,11 +3,15 @@ import { Box, Typography } from "@mui/material";
 const TagResult = ({ name, count }: { name: string; count: number }) => {
   return (
     <Box
-      sx={{
+      sx={(theme) => ({
         width: "150px",
         mt: "36px",
         mr: "24px",
-      }}
+        [theme.breakpoints.down("md")]: {
+          mt: "24px",
+          mr: "24px",
+        },
+      })}
     >
       <Box
         sx={{
