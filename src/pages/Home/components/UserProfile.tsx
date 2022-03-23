@@ -3,7 +3,6 @@ import { Theme, Typography, Box, Tabs, Tab } from "@mui/material";
 import Button from "../../../components/Button";
 
 const photoSx = (theme: Theme) => ({
-  // TODO: revise to 100% when put image
   width: "40px",
   height: "40px",
   borderRadius: "5px",
@@ -44,9 +43,10 @@ const UserProfile = ({
       </Box>
       <Box>
         <Button
-          variant="contained"
+          variant={isFollowing ? "outlined" : "contained"}
           sx={{
             p: "8px 10px",
+            textTransform: "none",
           }}
         >
           {isFollowing ? "Following" : "Follow"}

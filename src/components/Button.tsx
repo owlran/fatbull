@@ -21,8 +21,8 @@ const normalButtonSx = {
 };
 
 const containedButtonSx = {
-  width: 60,
-  height: 29,
+  // width: 60,
+  // height: 29,
   border: "1px solid",
   borderColor: "primary.main",
   borderRadius: 20,
@@ -38,8 +38,8 @@ const containedButtonSx = {
 };
 
 const outlinedButtonSx = {
-  width: 60,
-  height: 29,
+  // width: 60,
+  // height: 29,
   border: "1px solid",
   borderColor: "primary.main",
   backgroundColor: "primary.main",

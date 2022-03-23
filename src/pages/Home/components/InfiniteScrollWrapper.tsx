@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { Box, Skeleton, Typography } from "@mui/material";
+import { Box, Skeleton } from "@mui/material";
 import { FixedSizeList } from "react-window";
 import InfiniteLoader from "react-window-infinite-loader";
 
@@ -82,7 +82,7 @@ function InfiniteScrollWrapper({
           itemCount={itemCount}
           onItemsRendered={onItemsRendered}
           itemSize={60}
-          height={772}
+          height={1200}
           ref={ref}
           width={343}
         >

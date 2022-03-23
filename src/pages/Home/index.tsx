@@ -53,11 +53,12 @@ const Home = () => {
         display: "flex",
         justifyContent: "space-between",
         gap: "130px",
+        height: "100%",
       }}
     >
       {/* <Navigator /> */}
       <Box sx={{ flex: 1, marginTop: "54px" }}>
-        <Box sx={{ width: "725px" }}>
+        <Box sx={{ width: "725px", height: "100%", position: "relative" }}>
           <Typography variant="h5">Search</Typography>
           <Box sx={{ marginTop: "20px" }}>
             <TextField
@@ -75,7 +76,7 @@ const Home = () => {
           <Box sx={{ marginTop: "30px" }}>
             <Typography variant="h5"># of results per page</Typography>
           </Box>
-          <Box sx={{ display: "flex", gap: "10px" }}>
+          <Box sx={{ display: "flex", gap: "10px", mt: "20px" }}>
             <Typography
               variant="h3"
               sx={{
@@ -99,6 +100,13 @@ const Home = () => {
               value={sliderInfo?.value}
               marks={marks}
               onChange={handleSlider}
+              sx={{
+                "& .MuiSlider-markLabelActive": {
+                  [`&[data-index="${sliderIndex}"]`]: {
+                    opacity: 1,
+                  },
+                },
+              }}
             />
           </Box>
           <Divider
@@ -106,7 +114,12 @@ const Home = () => {
               ...dividerSx,
             }}
           />
-          <Box sx={{ marginTop: "335px" }}>
+          <Box
+            sx={{
+              position: "relative",
+              top: "335px",
+            }}
+          >
             <Button onClick={handleSearch}>
               <Typography variant="button">Search</Typography>
             </Button>

@@ -33,11 +33,12 @@ const sliderSx = {
     fontSize: 16,
     lineHeight: "150%",
     letterSpacing: 0.15,
-  },
-  "& .MuiSlider-markLabelActive": {
-    opacity: 1,
+    '&[data-index="0"]': {
+      transform: "none",
+    },
   },
 };
 export default function Slider(props: SliderProps) {
-  return <MuiSlider {...props} sx={{ ...sliderSx }} />;
+  const { sx, ...rest } = props;
+  return <MuiSlider {...rest} sx={{ ...sliderSx, ...sx }} />;
 }

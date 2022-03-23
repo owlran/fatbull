@@ -10,6 +10,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
         display: "flex",
         justifyContent: "space-between",
         gap: "130px",
+        maxHeight: "100vh",
       }}
     >
       <Navigator />

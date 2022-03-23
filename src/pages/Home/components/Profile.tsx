@@ -6,11 +6,15 @@ import FriendList from "./FriendList";
 import FollowingList from "./FollowingList";
 
 const tabSx = (theme: Theme) => ({
+  width: "187px",
+  height: "33px",
+  minHeight: "33px",
+  padding: 0,
   flex: 1,
   "&.MuiTab-root": {
     color: theme.palette.grayscale[500],
     ...theme.typography.subtitle1,
-    fontWeight: "700",
+    fontWeight: 700,
     textTransform: "none",
   },
   "&.Mui-selected": {
@@ -32,7 +36,7 @@ const Profile = () => {
           value={tabValue}
           onChange={handleChange}
           aria-label="basic tabs example"
-          sx={{ width: "100%", flex: "1 1 auto" }}
+          sx={{ width: "100%", flex: "1 1 auto", minHeight: "33px" }}
         >
           <Tab label="Followers" sx={tabSx} />
           <Tab label="Following" sx={tabSx} />
@@ -41,9 +45,6 @@ const Profile = () => {
       <Box
         sx={{
           pt: "35px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "21px",
         }}
       >
         {tabValue === 1 ? <FollowingList /> : <FriendList />}
