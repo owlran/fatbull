@@ -1,10 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import { Box, Typography } from "@mui/material";
+import { SxProps, Box, Typography } from "@mui/material";
 
-const Result = ({ name, username }: { name: string; username: string }) => {
+const Result = ({
+  name,
+  username,
+  sx,
+}: {
+  name: string;
+  username: string;
+  sx: SxProps;
+}) => {
   return (
-    <Box>
+    <Box sx={sx}>
       <Box
         sx={{
           width: "219px",

@@ -26,6 +26,11 @@ export const getUsers = (
   pageSize: number,
   keyword?: string
 ): Promise<AxiosResponse<any>> => {
+  console.log({
+    page,
+    pageSize,
+    keyword,
+  });
   return api.get(
     `/api/users/all?page=${page}&pageSize=${pageSize}${
       keyword ? `&keyword=${keyword}` : ""
