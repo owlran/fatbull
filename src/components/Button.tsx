@@ -64,15 +64,22 @@ const buttonSxMap = {
 export default function ButtonSx({
   children,
   variant,
-  sx,
   ...restProps
 }: ButtonProps) {
   return (
     <Button
       {...restProps}
-      sx={{
-        ...(variant ? buttonSxMap[variant] : buttonSxMap.text),
-        ...sx,
+      sx={(theme) => {
+        const sxObj = variant ? buttonSxMap[variant] : buttonSxMap.text;
+        return {
+          ...sxObj,
+          [theme.breakpoints.down("md")]: {
+            width: "100%",
+            "&:hover": {
+              width: "100%",
+            },
+          },
+        };
       }}
     >
       {children}

@@ -3,13 +3,18 @@ import { Box, Typography } from "@mui/material";
 const Logo = () => {
   return (
     <Box
-      sx={{
+      sx={(theme) => ({
         width: "80px",
         height: "80px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-      }}
+        [theme.breakpoints.down("md")]: {
+          width: "auto",
+          height: "auto",
+          justifyContent: "flex-start",
+        },
+      })}
     >
       <Typography
         sx={{

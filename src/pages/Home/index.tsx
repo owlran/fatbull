@@ -49,18 +49,47 @@ const Home = () => {
 
   return (
     <Box
-      sx={{
+      sx={(theme) => ({
         display: "flex",
         justifyContent: "space-between",
         gap: "130px",
         height: "100%",
-      }}
+        [theme.breakpoints.down("md")]: {
+          width: "100%",
+        },
+      })}
     >
       {/* <Navigator /> */}
-      <Box sx={{ flex: 1, marginTop: "54px" }}>
-        <Box sx={{ width: "725px", height: "100%", position: "relative" }}>
+      <Box
+        sx={(theme) => ({
+          flex: 1,
+          marginTop: "54px",
+          [theme.breakpoints.down("md")]: {
+            mt: 0,
+          },
+        })}
+      >
+        <Box
+          sx={(theme) => ({
+            width: "725px",
+            height: "100%",
+            position: "relative",
+            [theme.breakpoints.down("md")]: {
+              width: "100%",
+              padding: "0 20px",
+            },
+          })}
+        >
           <Typography variant="h5">Search</Typography>
-          <Box sx={{ marginTop: "20px" }}>
+          <Box
+            sx={(theme) => ({
+              mt: "20px",
+              [theme.breakpoints.down("md")]: {
+                mt: "16px",
+                width: "100%",
+              },
+            })}
+          >
             <TextField
               fullWidth
               placeholder="Keyword"
@@ -69,14 +98,33 @@ const Home = () => {
             />
           </Box>
           <Divider
-            sx={{
+            sx={(theme) => ({
               ...dividerSx,
-            }}
+              [theme.breakpoints.down("md")]: {
+                display: "none",
+              },
+            })}
           />
-          <Box sx={{ marginTop: "30px" }}>
+          <Box
+            sx={(theme) => ({
+              mt: "30px",
+              [theme.breakpoints.down("md")]: {
+                mt: "28px",
+              },
+            })}
+          >
             <Typography variant="h5"># of results per page</Typography>
           </Box>
-          <Box sx={{ display: "flex", gap: "10px", mt: "20px" }}>
+          <Box
+            sx={(theme) => ({
+              display: "flex",
+              gap: "10px",
+              mt: "20px",
+              [theme.breakpoints.down("md")]: {
+                mt: "16px",
+              },
+            })}
+          >
             <Typography
               variant="h3"
               sx={{
@@ -89,10 +137,17 @@ const Home = () => {
               variant="subtitle1"
               sx={{ alignSelf: "flex-end", marginBottom: "15px" }}
             >
-              results
+              result
             </Typography>
           </Box>
-          <Box sx={{ marginTop: "20px" }}>
+          <Box
+            sx={(theme) => ({
+              mt: "20px",
+              [theme.breakpoints.down("md")]: {
+                mt: "24px",
+              },
+            })}
+          >
             <Slider
               min={marks?.[0]?.value}
               max={marks?.[marks.length - 1]?.value}
@@ -110,15 +165,23 @@ const Home = () => {
             />
           </Box>
           <Divider
-            sx={{
+            sx={(theme) => ({
               ...dividerSx,
-            }}
+              [theme.breakpoints.down("md")]: {
+                mt: "221px",
+              },
+            })}
           />
           <Box
-            sx={{
+            sx={(theme) => ({
               position: "relative",
               top: "335px",
-            }}
+              [theme.breakpoints.down("md")]: {
+                width: "100%",
+                position: "static",
+                mt: "80px",
+              },
+            })}
           >
             <Button onClick={handleSearch}>
               <Typography variant="button">Search</Typography>

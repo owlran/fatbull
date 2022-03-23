@@ -5,14 +5,12 @@ import BottomNavigator from "./BottomNavigator";
 
 const Navigator = () => {
   const theme = useTheme();
-  const showButtomNavigator = useMediaQuery(theme.breakpoints.down("md"));
-  console.log({ showButtomNavigator });
+  const matchMd = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Box>
-      <Box>Navigator</Box>
       <Box>
-        {showButtomNavigator ? (
+        {matchMd ? (
           <BottomNavigator />
         ) : (
           <Drawer variant="permanent">123</Drawer>
