@@ -5,6 +5,8 @@ const TagResult = ({ name, count }: { name: string; count: number }) => {
     <Box
       sx={{
         width: "150px",
+        mt: "36px",
+        mr: "24px",
       }}
     >
       <Box

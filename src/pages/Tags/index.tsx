@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Skeleton, Box, Typography } from "@mui/material";
 
 import TagResult from "./components/TagResult";
 
@@ -13,9 +13,7 @@ const containerSx = {
 
 const Tags = () => {
   const { tags, loading } = useTags();
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+
   return (
     <Box sx={containerSx}>
       <Box>
@@ -28,13 +26,25 @@ const Tags = () => {
         >
           <Typography variant="h4">Tags</Typography>
         </Box>
-        <Box
-          sx={{ mt: "24px", display: "flex", gap: "24px", flexWrap: "wrap" }}
-        >
-          {tags?.map((tag) => (
-            <TagResult key={tag.id} name={tag.name} count={tag.count} />
-          ))}
-        </Box>
+        {loading ? (
+          <Box sx={{ mt: "-12px", display: "flex", flexWrap: "wrap" }}>
+            {Array.from({ length: 30 }).map((_, index) => (
+              <Skeleton
+                sx={{ bgcolor: "grey.900", mt: "36px", mr: "24px" }}
+                key={`tag-skeleton-${index}`}
+                variant="rectangular"
+                width="150px"
+                height="150px"
+              />
+            ))}
+          </Box>
+        ) : (
+          <Box sx={{ mt: "-12px", display: "flex", flexWrap: "wrap" }}>
+            {tags?.map((tag) => (
+              <TagResult key={tag.id} name={tag.name} count={tag.count} />
+            ))}
+          </Box>
+        )}
       </Box>
     </Box>
   );

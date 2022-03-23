@@ -10,7 +10,7 @@ type TagType = {
 
 const useTags = () => {
   const [data, setData] = useState<TagType[]>();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {

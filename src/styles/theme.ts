@@ -50,6 +50,17 @@ const theme = createTheme({
       fontSize: 48,
       lineHeight: "150%",
     },
+    h4: {
+      /* Headline 4/Regular */
+      fontFamily: "Ubuntu",
+      fontStyle: "normal",
+      fontWeight: 400,
+      fontSize: "30px",
+      lineHeight: "150%",
+      display: "flex",
+      alignTtems: "center",
+      letterSpacing: "0.25px",
+    },
     /* Headline 5/Regular */
     h5: {
       fontFamily: "Ubuntu",
