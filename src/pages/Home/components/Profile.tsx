@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState } from "react";
 
-import { Theme, Box, Tabs, Tab } from "@mui/material";
+import { useTheme, useMediaQuery, Theme, Box, Tabs, Tab } from "@mui/material";
 
 import FriendList from "./FriendList";
 import FollowingList from "./FollowingList";
@@ -24,6 +24,12 @@ const tabSx = (theme: Theme) => ({
 
 const Profile = () => {
   const [tabValue, setTabValue] = useState(0);
+
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("xl"));
+  if (matches) {
+    return null;
+  }
 
   const handleChange = (event: SyntheticEvent, newTabValue: number) => {
     setTabValue(newTabValue);
