@@ -68,6 +68,7 @@ const Results = () => {
         gap: "130px",
         [theme.breakpoints.down("md")]: {
           display: "block",
+          pb: "80px",
         },
       })}
     >

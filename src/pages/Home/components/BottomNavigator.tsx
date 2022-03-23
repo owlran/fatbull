@@ -8,13 +8,22 @@ import {
   BottomNavigationAction,
 } from "@mui/material";
 
+const getTabValueByPath = (path: string | undefined) => {
+  if (path === "/") {
+    return 0;
+  } else if (path === "/tags") {
+    return 1;
+  }
+  return -1;
+};
+
 const BottomNavigator = (props: BottomNavigationProps) => {
   const navigate = useNavigate();
   const match = useMatch("/*");
   // path: home -> '/', tags: /tags
   const path = match?.pathname;
 
-  const [value, setValue] = useState(path === "/" ? 0 : 1);
+  const [value, setValue] = useState(getTabValueByPath(path));
   console.log({ value });
   return (
     <MuiBottomNavigation
