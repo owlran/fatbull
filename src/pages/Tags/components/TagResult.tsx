@@ -27,7 +27,7 @@ const TagResult = ({ name, count }: { name: string; count: number }) => {
             border: "4px solid",
             borderColor: "common.white",
             borderRadius: "8px",
-            p: "7px 14px",
+            p: "3px 14px",
             display: "inline-flex",
             position: "absolute",
             left: "10px",
