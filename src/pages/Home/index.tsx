@@ -1,5 +1,11 @@
 import { SyntheticEvent, useState } from "react";
-import { Divider, Box, Typography } from "@mui/material";
+import {
+  useTheme,
+  useMediaQuery,
+  Divider,
+  Box,
+  Typography,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 // import Navigator from "./components/Navigator";
@@ -30,6 +36,8 @@ const Home = () => {
   const navigate = useNavigate();
   const [sliderIndex, setSliderIndex] = useState(4);
   const [keyword, setKeyword] = useState("");
+  const themeObject = useTheme();
+  const matchMd = useMediaQuery(themeObject.breakpoints.down("md"));
 
   const handleKeywordChange = (event: SyntheticEvent) => {
     const { value } = event.currentTarget as HTMLInputElement;
@@ -57,6 +65,7 @@ const Home = () => {
         ml: "210px",
         [theme.breakpoints.down("md")]: {
           width: "100%",
+          ml: 0,
         },
       })}
     >
@@ -140,14 +149,14 @@ const Home = () => {
               variant="subtitle1"
               sx={{ alignSelf: "flex-end", mb: "5px" }}
             >
-              results
+              {matchMd ? "result" : "results"}
             </Typography>
           </Box>
           <Box
             sx={(theme) => ({
               mt: "5px",
               [theme.breakpoints.down("md")]: {
-                mt: "24px",
+                mt: "10px",
               },
             })}
           >
@@ -183,7 +192,7 @@ const Home = () => {
               [theme.breakpoints.down("md")]: {
                 width: "100%",
                 position: "static",
-                mt: "80px",
+                mt: "68px",
               },
             })}
           >

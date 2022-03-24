@@ -18,7 +18,7 @@ const Tags = () => {
         padding: "80px 233px 0 337px",
         width: "100%",
         [theme.breakpoints.down("md")]: {
-          padding: "17px 25px 100px 25px",
+          padding: "17px 1px 100px 25px",
         },
       })}
     >
@@ -29,8 +29,9 @@ const Tags = () => {
             display: "none",
             [theme.breakpoints.down("md")]: {
               display: "flex",
+              alignItems: "center",
               gap: "20px",
-              pl: "6px",
+              pl: "1px",
               pb: "17px",
               cursor: "pointer",
             },
@@ -57,6 +58,7 @@ const Tags = () => {
                 fontWeight: 400,
                 lineHeight: "150%",
                 letterSpacing: 0,
+                ml: "-4px",
               },
             })}
           >

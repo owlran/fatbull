@@ -70,6 +70,7 @@ const Results = () => {
         [theme.breakpoints.down("md")]: {
           display: "block",
           pb: "80px",
+          ml: 0,
         },
       })}
     >
@@ -112,7 +113,16 @@ const Results = () => {
           onClick={() => navigate("/")}
         >
           <VectorIcon />
-          <Typography variant="h4">Results</Typography>
+          <Typography
+            variant="h4"
+            sx={(theme) => ({
+              fontSize: "24px",
+              lineHeight: "36px",
+              fontWeight: 400,
+            })}
+          >
+            Results
+          </Typography>
         </Box>
         <Box
           sx={(theme) => ({
