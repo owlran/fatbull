@@ -8,6 +8,7 @@ const normalButtonSx = {
   fontSize: 14,
   lineHeight: 14,
   fontWeight: 700,
+  textTransform: "none",
   "& &-root": {
     borderRadius: 4,
   },
@@ -30,6 +31,7 @@ const containedButtonSx = {
   fontSize: 12,
   fontWeight: 600,
   color: "primary.main",
+  textTransform: "none",
   "&:hover": {
     backgroundColor: "primary.main",
     color: "background.default",
@@ -48,6 +50,7 @@ const outlinedButtonSx = {
   fontSize: 12,
   fontWeight: 600,
   color: "background.default",
+  textTransform: "none",
   "&:hover": {
     backgroundColor: "background.default",
     color: "primary.main",

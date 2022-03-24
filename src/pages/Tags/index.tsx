@@ -15,7 +15,7 @@ const Tags = () => {
       sx={(theme) => ({
         display: "flex",
         justifyContent: "space-between",
-        padding: "80px 236px 0 128px",
+        padding: "80px 236px 0 337px",
         width: "100%",
         [theme.breakpoints.down("md")]: {
           padding: "17px 25px 100px 25px",

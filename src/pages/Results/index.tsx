@@ -66,6 +66,7 @@ const Results = () => {
         display: "flex",
         justifyContent: "space-between",
         gap: "130px",
+        ml: "217px",
         [theme.breakpoints.down("md")]: {
           display: "block",
           pb: "80px",

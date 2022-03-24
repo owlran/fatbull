@@ -82,10 +82,10 @@ function InfiniteScrollWrapper({
         <FixedSizeList
           itemCount={itemCount}
           onItemsRendered={onItemsRendered}
-          itemSize={60}
+          itemSize={61}
           height={1200}
           ref={ref}
-          width={343}
+          width={375}
         >
           {Item}
         </FixedSizeList>

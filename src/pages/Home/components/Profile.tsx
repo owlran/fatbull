@@ -10,6 +10,7 @@ const tabSx = (theme: Theme) => ({
   height: "33px",
   minHeight: "33px",
   padding: 0,
+  pb: "4px",
   flex: 1,
   "&.MuiTab-root": {
     color: theme.palette.grayscale[500],
@@ -50,7 +51,7 @@ const Profile = () => {
       </Box>
       <Box
         sx={{
-          pt: "35px",
+          pt: "32px",
         }}
       >
         {tabValue === 1 ? <FollowingList /> : <FriendList />}

@@ -20,6 +20,7 @@ const sliderSx = {
     transform: `matrix(-1, 0, 0, 1, ${-thumbSize / 2}, 0)`,
   },
   "& .MuiSlider-track": {
+    height: "8px",
     background: `linear-gradient(to right, #FF5C01, #FFD25F)`,
     border: "none",
   },
@@ -33,6 +34,7 @@ const sliderSx = {
     fontSize: 16,
     lineHeight: "150%",
     letterSpacing: 0.15,
+    top: "42px",
     '&[data-index="0"]': {
       transform: "none",
     },

@@ -21,7 +21,7 @@ const marks = [
 const dividerSx = {
   backgroundColor: "common.white",
   border: "1px solid",
-  marginTop: "30px",
+  marginTop: "26px",
   borderColor: "common.white",
   opacity: 0.1,
 };
@@ -54,6 +54,7 @@ const Home = () => {
         justifyContent: "space-between",
         gap: "130px",
         height: "100%",
+        ml: "210px",
         [theme.breakpoints.down("md")]: {
           width: "100%",
         },
@@ -84,6 +85,7 @@ const Home = () => {
           <Box
             sx={(theme) => ({
               mt: "20px",
+              width: "725px",
               [theme.breakpoints.down("md")]: {
                 mt: "16px",
                 width: "100%",
@@ -129,20 +131,21 @@ const Home = () => {
               variant="h3"
               sx={{
                 fontWeight: 700,
+                lineHeight: "50px",
               }}
             >
               {sliderInfo.label}
             </Typography>
             <Typography
               variant="subtitle1"
-              sx={{ alignSelf: "flex-end", marginBottom: "15px" }}
+              sx={{ alignSelf: "flex-end", mb: "5px" }}
             >
-              result
+              results
             </Typography>
           </Box>
           <Box
             sx={(theme) => ({
-              mt: "20px",
+              mt: "5px",
               [theme.breakpoints.down("md")]: {
                 mt: "24px",
               },
@@ -176,6 +179,7 @@ const Home = () => {
             sx={(theme) => ({
               position: "relative",
               top: "335px",
+              width: "343px",
               [theme.breakpoints.down("md")]: {
                 width: "100%",
                 position: "static",

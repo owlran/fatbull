@@ -25,6 +25,7 @@ const UserProfile = ({
         alignItems: "center",
         justifyContent: "space-between",
         gap: "15px",
+        padding: "0 16px",
       }}
     >
       <Box sx={photoSx}>
@@ -42,7 +43,6 @@ const UserProfile = ({
           variant={isFollowing ? "outlined" : "contained"}
           sx={{
             p: "8px 10px",
-            textTransform: "none",
           }}
         >
           {isFollowing ? "Following" : "Follow"}

@@ -13,7 +13,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
       sx={(theme) => ({
         display: "flex",
         justifyContent: "space-between",
-        gap: "130px",
         maxHeight: "100vh",
         [theme.breakpoints.down("md")]: {
           flexDirection: "column",
