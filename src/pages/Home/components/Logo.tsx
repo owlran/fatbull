@@ -23,10 +23,11 @@ const Logo = () => {
           fontWeight: 700,
           fontSize: "13px",
           lineHeight: "15px",
-          letterSpacing: "0.47px",
+          letterSpacing: "-0.05em",
           background: "linear-gradient(270deg, #FFD25F 0.13%, #FF5C01 100%)",
           backgroundClip: "text",
           textFillColor: "transparent",
+          textTransform: "Uppercase",
         }}
       >
         Logo

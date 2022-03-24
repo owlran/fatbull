@@ -51,8 +51,9 @@ const itemTextSx = {
 const Drawer = (props: DrawerProps) => {
   const navigate = useNavigate();
   const match = useMatch("/*");
-  // path: home -> '/', tags: /tags
+  // path: home -> '/', tags: /tags, results: /results
   const path = match?.pathname;
+  const isHomePage = path === "/" || path === "/results";
 
   return (
     <MuiDrawer
@@ -77,7 +78,7 @@ const Drawer = (props: DrawerProps) => {
           <ListItem
             sx={{
               ...listItemSx,
-              ...(path === "/" ? activeListItemSx : {}),
+              ...(isHomePage ? activeListItemSx : {}),
               mt: "7px",
             }}
             onClick={() => navigate("/")}
@@ -85,7 +86,7 @@ const Drawer = (props: DrawerProps) => {
             <ListItemIcon sx={iconWrapperSx}>
               <HomeIcon />
             </ListItemIcon>
-            {path === "/" && <ListItemText sx={itemTextSx}>Home</ListItemText>}
+            {isHomePage && <ListItemText sx={itemTextSx}>Home</ListItemText>}
           </ListItem>
           <ListItem
             sx={{

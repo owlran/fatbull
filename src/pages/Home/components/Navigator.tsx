@@ -7,11 +7,7 @@ const Navigator = () => {
   const theme = useTheme();
   const matchMd = useMediaQuery(theme.breakpoints.down("md"));
 
-  return (
-    <>
-      {matchMd ? <BottomNavigator /> : <Drawer variant="permanent">123</Drawer>}
-    </>
-  );
+  return <>{matchMd ? <BottomNavigator /> : <Drawer variant="permanent" />}</>;
 };
 
 export default Navigator;

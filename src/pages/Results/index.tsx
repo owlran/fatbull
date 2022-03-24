@@ -65,7 +65,7 @@ const Results = () => {
       sx={(theme) => ({
         display: "flex",
         justifyContent: "space-between",
-        gap: "130px",
+        // gap: "130px",
         ml: "217px",
         [theme.breakpoints.down("md")]: {
           display: "block",
@@ -103,7 +103,7 @@ const Results = () => {
             display: "flex",
             alignItems: "center",
             gap: "32px",
-            ml: "-36.5px",
+            ml: "-47.5px",
             cursor: "pointer",
             [theme.breakpoints.down("md")]: {
               mt: "37px",
