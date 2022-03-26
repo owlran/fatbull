@@ -45,6 +45,7 @@ const Tags = () => {
             display: "flex",
             alignItems: "center",
             gap: "24px",
+            mt: "-2px",
             [theme.breakpoints.down("md")]: {
               mt: "20px",
             },
@@ -69,7 +70,7 @@ const Tags = () => {
           <Box sx={{ mt: "-12px", display: "flex", flexWrap: "wrap" }}>
             {Array.from({ length: 30 }).map((_, index) => (
               <Skeleton
-                sx={{ bgcolor: "grey.900", mt: "36px", mr: "24px" }}
+                sx={{ bgcolor: "grey.900", mt: "35px", mr: "24px" }}
                 key={`tag-skeleton-${index}`}
                 variant="rectangular"
                 width="150px"
