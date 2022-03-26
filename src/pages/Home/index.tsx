@@ -86,7 +86,7 @@ const Home = () => {
             position: "relative",
             [theme.breakpoints.down("md")]: {
               width: "100%",
-              padding: "0 20px",
+              padding: "2px 20px",
             },
           })}
         >
@@ -163,7 +163,8 @@ const Home = () => {
             sx={(theme) => ({
               mt: "15px",
               [theme.breakpoints.down("md")]: {
-                mt: "10px",
+                mt: "9px",
+                ml: "-6px",
               },
             })}
           >
@@ -200,7 +201,7 @@ const Home = () => {
               [theme.breakpoints.down("md")]: {
                 width: "100%",
                 position: "static",
-                mt: "68px",
+                mt: "69px",
               },
             })}
           >
