@@ -104,7 +104,8 @@ const Results = () => {
             display: "flex",
             alignItems: "center",
             gap: "32px",
-            ml: "-47.5px",
+            ml: "-45.5px",
+            mt: "-5px",
             cursor: "pointer",
             [theme.breakpoints.down("md")]: {
               mt: "37px",
@@ -116,8 +117,9 @@ const Results = () => {
           <Typography
             variant="h4"
             sx={(theme) => ({
-              fontSize: "24px",
-              lineHeight: "36px",
+              fontSize: "30px",
+              lineHeight: "45px",
+              letterSpacing: "0.25px",
               fontWeight: 400,
             })}
           >
@@ -127,11 +129,12 @@ const Results = () => {
         <Box
           sx={(theme) => ({
             mt: "-7px",
+            ml: "-7px",
             display: "flex",
             flexWrap: "wrap",
             [theme.breakpoints.down("md")]: {
-              // 40 - 24px
               mt: "-16px",
+              ml: 0,
             },
           })}
         >
@@ -152,7 +155,7 @@ const Results = () => {
                   username={user.username}
                   sx={(theme: Theme) => ({
                     mt: "31px",
-                    mr: "24px",
+                    mr: "35px",
                     [theme.breakpoints.down("md")]: {
                       width: "100%",
                       mt: "40px",
