@@ -79,20 +79,43 @@ const Drawer = (props: DrawerProps) => {
             sx={{
               ...listItemSx,
               ...(isHomePage ? activeListItemSx : {}),
-              mt: "7px",
+              mt: "5px",
+              ml: "3px",
             }}
             onClick={() => navigate("/")}
           >
-            <ListItemIcon sx={iconWrapperSx}>
+            <ListItemIcon
+              sx={{
+                ...iconWrapperSx,
+              }}
+            >
               <HomeIcon />
             </ListItemIcon>
-            {isHomePage && <ListItemText sx={itemTextSx}>Home</ListItemText>}
+            {isHomePage && (
+              <ListItemText
+                sx={{
+                  ...itemTextSx,
+                  mt: "-2px",
+                  ml: "-4px",
+                }}
+              >
+                Home
+              </ListItemText>
+            )}
           </ListItem>
           <ListItem
             sx={{
               ...listItemSx,
               ...(path === "/tags" ? activeListItemSx : {}),
-              mt: "22px",
+              ...(path === "/tags"
+                ? {
+                    mt: "40px",
+                  }
+                : {
+                    mt: "24px",
+                  }),
+
+              ml: "3px",
             }}
             onClick={() => navigate("/tags")}
           >
@@ -119,7 +142,14 @@ const Drawer = (props: DrawerProps) => {
               </Badge>
             </ListItemIcon>
             {path === "/tags" && (
-              <ListItemText sx={itemTextSx}>Tags</ListItemText>
+              <ListItemText
+                sx={{
+                  ...itemTextSx,
+                  ml: "-3px",
+                }}
+              >
+                Tags
+              </ListItemText>
             )}
           </ListItem>
         </List>
