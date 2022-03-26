@@ -45,7 +45,15 @@ const UserProfile = ({
             p: "8px 10px",
           }}
         >
-          {isFollowing ? "Following" : "Follow"}
+          <Typography
+            sx={{
+              fontSize: "12px",
+              fontWeight: 600,
+              lineHeight: "12px",
+            }}
+          >
+            {isFollowing ? "Following" : "Follow"}
+          </Typography>
         </Button>
       </Box>
     </Box>

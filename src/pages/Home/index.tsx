@@ -90,10 +90,17 @@ const Home = () => {
             },
           })}
         >
-          <Typography variant="h5">Search</Typography>
+          <Typography
+            variant="h5"
+            sx={{
+              mt: "-4px",
+            }}
+          >
+            Search
+          </Typography>
           <Box
             sx={(theme) => ({
-              mt: "20px",
+              mt: "21px",
               width: "725px",
               [theme.breakpoints.down("md")]: {
                 mt: "16px",
@@ -118,7 +125,7 @@ const Home = () => {
           />
           <Box
             sx={(theme) => ({
-              mt: "30px",
+              mt: "31px",
               [theme.breakpoints.down("md")]: {
                 mt: "28px",
               },
@@ -147,14 +154,14 @@ const Home = () => {
             </Typography>
             <Typography
               variant="subtitle1"
-              sx={{ alignSelf: "flex-end", mb: "5px" }}
+              sx={{ alignSelf: "flex-end", mb: "4px" }}
             >
               {matchMd ? "result" : "results"}
             </Typography>
           </Box>
           <Box
             sx={(theme) => ({
-              mt: "5px",
+              mt: "15px",
               [theme.breakpoints.down("md")]: {
                 mt: "10px",
               },
@@ -168,6 +175,7 @@ const Home = () => {
               marks={marks}
               onChange={handleSlider}
               sx={{
+                ml: "1px",
                 "& .MuiSlider-markLabelActive": {
                   [`&[data-index="${sliderIndex}"]`]: {
                     opacity: 1,
@@ -187,7 +195,7 @@ const Home = () => {
           <Box
             sx={(theme) => ({
               position: "relative",
-              top: "335px",
+              top: "338px",
               width: "343px",
               [theme.breakpoints.down("md")]: {
                 width: "100%",
@@ -196,7 +204,7 @@ const Home = () => {
               },
             })}
           >
-            <Button onClick={handleSearch}>
+            <Button style={{ width: "100%" }} onClick={handleSearch}>
               <Typography variant="button">Search</Typography>
             </Button>
           </Box>

@@ -9,7 +9,7 @@ const tabSx = (theme: Theme) => ({
   width: "187px",
   height: "33px",
   minHeight: "33px",
-  padding: 0,
+  padding: "0 0 5px 0",
   pb: "4px",
   flex: 1,
   "&.MuiTab-root": {
