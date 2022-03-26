@@ -44,8 +44,22 @@ const BottomNavigator = (props: BottomNavigationProps) => {
         backdropFilter: "blur(54.3656px)",
       }}
     >
-      <BottomNavigationAction icon={<HomeIcon />} />
-      <BottomNavigationAction icon={<HomeIcon />} />
+      <BottomNavigationAction
+        icon={<HomeIcon />}
+        sx={{
+          alignItems: "flex-end",
+          paddingRight: "27px",
+          marginTop: "-16px",
+        }}
+      />
+      <BottomNavigationAction
+        icon={<HomeIcon />}
+        sx={{
+          alignItems: "flex-start",
+          paddingLeft: "26px",
+          marginTop: "-15px",
+        }}
+      />
     </MuiBottomNavigation>
   );
 };

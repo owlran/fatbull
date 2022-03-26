@@ -168,13 +168,7 @@ const Home = () => {
               },
             })}
           >
-            <Slider
-              min={marks?.[0]?.value}
-              max={marks?.[marks.length - 1]?.value}
-              step={null}
-              value={sliderInfo?.value}
-              marks={marks}
-              onChange={handleSlider}
+            <Box
               sx={{
                 ml: "1px",
                 "& .MuiSlider-markLabelActive": {
@@ -183,7 +177,16 @@ const Home = () => {
                   },
                 },
               }}
-            />
+            >
+              <Slider
+                min={marks?.[0]?.value}
+                max={marks?.[marks.length - 1]?.value}
+                step={null}
+                value={sliderInfo?.value}
+                marks={marks}
+                onChange={handleSlider}
+              />
+            </Box>
           </Box>
           <Divider
             sx={(theme) => ({
