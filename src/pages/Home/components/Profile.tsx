@@ -37,7 +37,7 @@ const Profile = () => {
   };
 
   return (
-    <Box sx={{ width: "375px", marginTop: "32px" }}>
+    <Box sx={{ width: "375px", marginTop: "28px" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={tabValue}
